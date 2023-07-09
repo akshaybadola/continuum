@@ -26,7 +26,7 @@ def herd_random(
         )
 
     indexes = np.concatenate(indexes)
-    return x[indexes], y[indexes], t[indexes]
+    return x[indexes], y[indexes], t[indexes], indexes
 
 
 def herd_closest_to_cluster(
@@ -62,7 +62,7 @@ def herd_closest_to_cluster(
         indexes.append(class_indexes[tmp_indexes])
 
     indexes = np.concatenate(indexes)
-    return x[indexes], y[indexes], t[indexes]
+    return x[indexes], y[indexes], t[indexes], indexes
 
 
 def herd_closest_to_barycenter(
@@ -123,4 +123,4 @@ def herd_closest_to_barycenter(
         indexes.append(class_indexes[tmp_indexes])
 
     indexes = np.concatenate(indexes)
-    return x[indexes], y[indexes], t[indexes]
+    return x[indexes], y[indexes], t[indexes], indexes

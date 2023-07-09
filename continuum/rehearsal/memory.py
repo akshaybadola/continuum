@@ -170,15 +170,16 @@ class RehearsalMemory:
         for c in np.unique(y):
             self.seen_classes.add(c)
 
-        mem_x, mem_y, mem_t = self.herding_method(
+        mem_x, mem_y, mem_t, inds = self.herding_method(
             x, y, t, z, nb_per_class=self.memory_per_class
         )
 
         if self._x is None:
-            self._x, self._y, self._t = mem_x, mem_y, mem_t
+            self._x, self._y, self._t, self._inds = mem_x, mem_y, mem_t, [inds]
         else:
             self._x = np.concatenate((self._x, mem_x))
             self._y = np.concatenate((self._y, mem_y))
             self._t = np.concatenate((self._t, mem_t))
+            self._inds.append(inds)
 
         self._reduce()
