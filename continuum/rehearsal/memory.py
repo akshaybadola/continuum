@@ -68,6 +68,7 @@ class RehearsalMemory:
         self.seen_classes = set()
 
         self._x = self._y = self._t = None
+        self._inds = []
 
     @property
     def nb_classes(self) -> int:
